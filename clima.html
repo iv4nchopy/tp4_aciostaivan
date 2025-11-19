@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Clima — TP4</title>
+<link rel="stylesheet" href="../statics/styles.css">
+<style>
+/* ===== Fondo negro con lluvia ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    background-color: #000; /* Fondo negro */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Capa de lluvia */
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: linear-gradient(to bottom, #00f, #fff); /* gotas azules/blancas */
+    opacity: 0.7;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-20px); }
+    100% { transform: translateY(110vh); }
+}
+
+/* Cabecera */
+header.hero {
+    text-align: center;
+    padding: 50px 20px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Card principal con blur para legibilidad */
+section.card {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+/* Input y botón */
+.input-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #2b3d8f;
+    outline: none;
+    width: 60%;
+}
+
+button.btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2b3d8f;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.btn:hover {
+    background-color: #1c2a63;
+}
+
+/* Resultado */
+.resultado {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* Volver */
+.links a.btn.ghost {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.links a.btn.ghost:hover {
+    background-color: rgba(43,61,143,0.8);
+}
+
+/* Footer */
+footer.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 0.9rem;
+    z-index: 2;
+    position: relative;
+}
+</style>
+</head>
+<body>
+
+<!-- Fondo de lluvia -->
+<div class="rain"></div>
+
+<header class="hero small">
+<h1>API del Clima (OpenWeather)</h1>
+<p>Ingresa una ciudad y obtén temperatura, humedad y descripción.</p>
+</header>
+
+<section class="card">
+<div class="input-row">
+<input id="inputCiudad" placeholder="Ej: Asunción, Paraguay">
+<button id="btnBuscarClima" class="btn">Buscar</button>
+</div>
+
+<div id="resultadoClima" class="resultado"></div>
+
+<div class="links">
+<a href="index.html" class="btn ghost">⬅ Volver al inicio</a>
+</div>
+</section>
+
+<footer class="footer">
+<small>TP4 - Clima</small>
+</footer>
+
+<script src="../js/clima.js"></script>
+<script src="../js/script_bienvenida.js"></script>
+<script>
+/* ===== Crear gotas de lluvia dinámicamente ===== */
+const rainContainer = document.querySelector('.rain');
+const numberOfDrops = 120;
+
+for (let i = 0; i < numberOfDrops; i++) {
+    const drop = document.createElement('div');
+    drop.classList.add('drop');
+    drop.style.left = Math.random() * 100 + 'vw';
+    drop.style.animationDuration = 0.5 + Math.random() * 1.5 + 's';
+    drop.style.animationDelay = Math.random() * 5 + 's';
+    drop.style.height = 10 + Math.random() * 20 + 'px';
+    rainContainer.appendChild(drop);
+}
+</script>
+</body>
+</html>

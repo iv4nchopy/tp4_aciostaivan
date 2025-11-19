@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Criptomonedas — TP4</title>
+<link rel="stylesheet" href="../statics/styles.css">
+<style>
+/* Fondo general */
+body {
+    background: url('https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabecera */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Contenedor input y select */
+.contenedorBusqueda {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Select de criptomonedas */
+#criptoSelect {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #f7931a;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Botón consultar */
+#buscarCriptoBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f7931a;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#buscarCriptoBtn:hover {
+    background-color: #d17713;
+}
+
+/* Resultados con blur y sombra */
+#criptoResultado {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.infoCripto {
+    display: inline-block;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    max-width: 320px;
+    margin: 20px auto;
+    animation: fadeIn 0.8s ease;
+    color: white;
+    text-align: center;
+}
+
+.infoCripto h3, .infoCripto p {
+    margin: 8px 0;
+}
+
+/* Botón volver */
+.volver {
+    margin: 20px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.volver:hover {
+    background-color: rgba(247,147,26,0.8);
+}
+
+/* Bienvenida */
+#mensajeBienvenida {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Botones ingreso/borrar nombre */
+#btnIngresarNombre, #btnBorrarNombre {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f7931a;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#btnBorrarNombre { background-color: rgba(255,255,255,0.2); }
+#btnIngresarNombre:hover, #btnBorrarNombre:hover { background-color: #d17713; }
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<a href="index.html">
+    <button class="volver">⬅ Inicio</button>
+</a>
+
+<div id="mensajeBienvenida">¡Bienvenido! Presiona "Ingresar nombre y apellido" para personalizar.</div>
+<div style="text-align:center;">
+    <button id="btnIngresarNombre">Ingresar nombre y apellido</button>
+    <button id="btnBorrarNombre">Borrar nombre</button>
+</div>
+
+<h1>Criptomonedas — TP4</h1>
+<p style="text-align:center;">Selecciona una criptomoneda para ver su precio, cambio 24h y market cap.</p>
+
+<div class="contenedorBusqueda">
+    <select id="criptoSelect"></select>
+    <button id="buscarCriptoBtn">Consultar</button>
+</div>
+
+<div id="criptoResultado"></div>
+
+<script src="../js/script_bienvenida.js"></script>
+<script src="../js/cripto.js"></script>
+</body>
+</html>

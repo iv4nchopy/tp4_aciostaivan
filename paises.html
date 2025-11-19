@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Países — TP4</title>
+<link rel="stylesheet" href="../statics/styles.css">
+<style>
+body {
+    background: url('https://images.pexels.com/photos/1174136/pexels-photo-1174136.jpeg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Botón volver */
+.volver {
+    margin: 20px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.volver:hover {
+    background-color: rgba(43,61,143,0.8);
+}
+
+/* Cabecera */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+/* Input y botón */
+.contenedorBusqueda {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#paisInput {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #2b3d8f;
+    outline: none;
+    width: 250px;
+}
+
+#buscarPaisBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2b3d8f;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#buscarPaisBtn:hover {
+    background-color: #1c2a63;
+}
+
+/* Resultados */
+#paisResultado {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.infoPais {
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.8s ease;
+    max-width: 350px;
+}
+
+/* Bandera oficial */
+.infoPais img.bandera {
+    margin-top: 10px;
+    max-width: 160px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+}
+
+/* Imagen decorativa */
+.infoPais img.imagenRef {
+    margin-top: 15px;
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
+}
+
+/* Bienvenida */
+#mensajeBienvenida {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btnIngresarNombre, #btnBorrarNombre {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2b3d8f;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#btnBorrarNombre {
+    background-color: rgba(255,255,255,0.2);
+}
+#btnIngresarNombre:hover, #btnBorrarNombre:hover {
+    background-color: #1c2a63;
+}
+</style>
+</head>
+<body>
+
+<a href="index.html">
+    <button class="volver">⬅ Inicio</button>
+</a>
+
+<div id="mensajeBienvenida">¡Bienvenido! Presiona "Ingresar nombre y apellido" para personalizar.</div>
+<div style="text-align:center;">
+<button id="btnIngresarNombre">Ingresar nombre y apellido</button>
+<button id="btnBorrarNombre">Borrar nombre</button>
+</div>
+
+<h1>🌎 Buscador de Países</h1>
+<p style="text-align:center;">Ingresa el nombre de un país y obtén su información oficial y una imagen de referencia.</p>
+
+<div class="contenedorBusqueda">
+<input type="text" id="paisInput" placeholder="Ejemplo: Paraguay">
+<button id="buscarPaisBtn">Buscar</button>
+</div>
+
+<div id="paisResultado"></div>
+
+<script src="../js/script_bienvenida.js"></script>
+<script src="../js/paises.js"></script>
+</body>
+</html>

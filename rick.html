@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rick & Morty — TP4</title>
+<link rel="stylesheet" href="../statics/styles.css">
+<style>
+/* Fondo decorativo */
+body {
+    background-image: url('https://wallpaper.forfun.com/fetch/26/261851a41c4b25efb303651b6fa38c69.jpeg?w=1470&r=0.5625');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Cabecera */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Contenedor input y botón */
+.contenedorBusqueda {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#rickInput {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #00ffcc;
+    outline: none;
+    width: 200px;
+}
+
+#buscarRickBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00ffcc;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#buscarRickBtn:hover {
+    background-color: #00cca3;
+}
+
+/* Resultados con blur, fondo y sombra */
+#rickResultado {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.infoRick {
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 320px;
+    margin: 20px auto;
+    animation: fadeIn 0.8s ease;
+}
+
+.infoRick h3,
+.infoRick p {
+    color: white;
+    margin: 8px 0;
+}
+
+.infoRick img {
+    display: block;
+    margin: 15px auto;
+    max-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Botón volver */
+.volver {
+    margin: 20px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.volver:hover {
+    background-color: rgba(0,255,204,0.7);
+}
+
+/* Bienvenida y botones */
+#mensajeBienvenida {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btnIngresarNombre, #btnBorrarNombre {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00ffcc;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#btnBorrarNombre { background-color: rgba(255,255,255,0.2); }
+#btnIngresarNombre:hover, #btnBorrarNombre:hover { background-color: #00cca3; }
+</style>
+</head>
+<body>
+
+<!-- Botón volver al índice -->
+<a href="index.html">
+    <button class="volver">⬅ Inicio</button>
+</a>
+
+<!-- Bienvenida -->
+<div id="mensajeBienvenida">¡Bienvenido! Presiona "Ingresar nombre y apellido" para personalizar.</div>
+<div style="text-align:center;">
+    <button id="btnIngresarNombre">Ingresar nombre y apellido</button>
+    <button id="btnBorrarNombre">Borrar nombre</button>
+</div>
+
+<h1>Rick & Morty — TP4</h1>
+<p style="text-align:center;">Ingresa el ID de un personaje y obtén su información.</p>
+
+<!-- Input -->
+<div class="contenedorBusqueda">
+    <input type="number" id="rickInput" placeholder="Ej: 1">
+    <button id="buscarRickBtn">Buscar</button>
+</div>
+
+<!-- Resultados -->
+<div id="rickResultado"></div>
+
+<!-- Scripts -->
+<script src="../js/script_bienvenida.js"></script>
+<script src="../js/rick.js"></script>
+</body>
+</html>
